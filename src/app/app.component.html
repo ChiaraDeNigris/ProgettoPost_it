@@ -1,12 +1,13 @@
 <h1>{{title}}</h1>
 
+<h2>{{titleSec1}}</h2>
 <ul>
   <li *ngFor='let p of obj| keyvalue'>
-     {{p| json }} <br>
+     {{p.value| json }} <br>
     <button (click) = 'showPost(p.key)'>{{p.value}}</button>
     <button (click) = 'deletePost(p.key)'>Cancella</button>
   </li>
 </ul>
-
+<h2>{{titleSec2}}</h2>
 <app-visualizzazione [selezioneC]="selezione"> </app-visualizzazione>
 <app-nuovopost (nuovoPostEvent)="addPost($event)"> </app-nuovopost>
