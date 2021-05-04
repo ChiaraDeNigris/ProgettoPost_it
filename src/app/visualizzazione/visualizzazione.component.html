@@ -1,0 +1,4 @@
+<p *ngIf = "selezioneC!== undefined">
+  {{selezioneC.testo}}
+  <button *ngIf = "selezioneC.testo != undefined" (click) = 'clean()'>Chiudi</button>
+</p>
