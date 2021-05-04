@@ -23,7 +23,7 @@ export class AppComponent  {
   
 
   showTitle() {
-    this.kv.getData().subscribe( (x: any) => { this.obj = x;},
+    this.kv.getData().subscribe( (p: any) => { this.obj = p;},
     err => console.error("Observer got an error: " + err)
     );
   }
@@ -33,11 +33,11 @@ export class AppComponent  {
   showPost(id) {
     this.selezione.titolo = this.obj[id].titolo;
     this.selezione.testo = this.obj[id].testo;
-    console.log(this.obj[id]);
+    console.log(this.obj);
   }
 
   addPost(newPost: Object) {
-    var k : any;
+    var k : any = 0;
     for (let data in this.obj ) {
       var chiavi = Object.keys(this.obj);
       var len = chiavi.length;
