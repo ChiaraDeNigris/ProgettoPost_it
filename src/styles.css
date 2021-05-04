@@ -1,1 +1,9 @@
-/* Add application styles & imports to this file! */
+body { background-color: #e6eeff;
+        font-family: Arial;
+}
+
+body button {
+  background-color: #e6eeff;
+  border: 2% solid black;
+  margin:1%;
+}

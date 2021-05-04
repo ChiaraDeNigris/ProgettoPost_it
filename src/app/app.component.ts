@@ -12,7 +12,6 @@ export class Post {
   styleUrls: [ './app.component.css' ]
 })
 
-
 export class AppComponent  {
   title = "Post-it";
   titleSec1 = "I tuoi post it";
@@ -21,7 +20,6 @@ export class AppComponent  {
   selezione: Post = new Post();
   constructor(private kv: KeyvalueService) {}
   
-
   showTitle() {
     this.kv.getData().subscribe( (p: any) => { this.obj = p;},
     err => console.error("Observer got an error: " + err)
