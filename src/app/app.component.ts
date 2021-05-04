@@ -56,11 +56,6 @@ export class AppComponent  {
     );
   }
 
-   importantPost(id) {
-    this.obj[id].className = " importante";
-    console.log(this.obj[id]);
-  }
-
 }
 
 
