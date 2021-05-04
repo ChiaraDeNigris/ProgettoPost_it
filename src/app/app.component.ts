@@ -56,11 +56,9 @@ export class AppComponent  {
     );
   }
 
-   makeImportant(id) {
-    delete this.obj[id];
-    this.kv.postData(this.obj).subscribe( (obj: object) => {},
-    err => console.error("Observer got an error: " + err)
-    );
+   importantPost(id) {
+    id.classList.add("importante");
+    
   }
 
 }
