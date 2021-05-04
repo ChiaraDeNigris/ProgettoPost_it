@@ -1,9 +1,10 @@
 <h1>{{title}}</h1>
 
 <ul>
-  <li *ngFor='let x of ob| keyvalue'>
-    <button (click) = 'showPost(x.key)'>{{x.value}}</button>
-    <button (click) = 'deletePost(x.key)'>Cancella</button>
+  <li *ngFor='let p of obj| keyvalue'>
+     {{p| json }} <br>
+    <button (click) = 'showPost(p.key)'>{{p.value}}</button>
+    <button (click) = 'deletePost(p.key)'>Cancella</button>
   </li>
 </ul>
 
