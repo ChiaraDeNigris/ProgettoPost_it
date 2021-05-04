@@ -12,6 +12,7 @@ export class Post {
   styleUrls: [ './app.component.css' ]
 })
 
+
 export class AppComponent  {
   title = "Post-it";
   titleSec1 = "I tuoi post it";
@@ -19,6 +20,7 @@ export class AppComponent  {
   obj: Object = {};
   selezione: Post = new Post();
   constructor(private kv: KeyvalueService) {}
+  
 
   showTitle() {
     this.kv.getData().subscribe( (x: any) => { this.obj = x;},
