@@ -31,7 +31,7 @@ export class AppComponent  {
   showPost(id) {
     this.selezione.titolo = this.obj[id].titolo;
     this.selezione.testo = this.obj[id].testo;
-    console.log(this.obj);
+    console.log(this.obj[id]);
   }
 
   addPost(newPost: Object) {
@@ -57,8 +57,8 @@ export class AppComponent  {
   }
 
    importantPost(id) {
-    id.classList.add("importante");
-    
+    this.obj[id].className = " importante";
+    console.log(this.obj[id]);
   }
 
 }
