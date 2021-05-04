@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
 })
 
 export class KeyvalueService {
-  apiURL: string = 'https://api.keyvalue.xyz/5d26258c/myKey';
+  apiURL: string = 'https://api.keyvalue.xyz/eddaa241/myKey';
   constructor(private http: HttpClient) { }
 
   public getData(): Observable<Object> {

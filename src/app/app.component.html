@@ -4,7 +4,7 @@
 <ul>
   <li *ngFor="let p of obj| keyvalue">
     <button (click)="showPost(p.key)">{{p.value.titolo}}</button>
-    <button (click) ="deletePost(p.key)">Cancella</button>
+    <button (click) ="deletePost(p.key)">Elimina</button>
   </li>
 </ul>
 <br>
