@@ -16,7 +16,7 @@ export class AppComponent  {
   title = "Post-it";
   titleSec1 = "I tuoi post it";
   titleSec2 = "Scrivi un nuvo post-it";
-  obj: Object = {};
+  obj: Array<Post> = [];
   selezione: Post = new Post();
   constructor(private kv: KeyvalueService) {}
   
