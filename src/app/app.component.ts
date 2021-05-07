@@ -4,6 +4,7 @@ import { KeyvalueService } from './keyvalue.service';
 export class Post {
   titolo: string;
   testo: string;
+  importante: Boolean; 
 }
 
 @Component({
