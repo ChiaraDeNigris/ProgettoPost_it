@@ -54,6 +54,11 @@ export class AppComponent  {
     );
   }
 
+   showImp() {
+    var prefs:Array<Post> = this.obj.filter(postit => postit.importante==true);
+    console.log(prefs);
+  }
+
 }
 
 

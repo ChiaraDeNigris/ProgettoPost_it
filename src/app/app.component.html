@@ -1,6 +1,7 @@
 <h1>{{title}}</h1>
 
 <h2>{{titleSec1}}</h2>
+<button (click) ="showImp()">Mostra solo importanti</button>
 <ul>
   <li *ngFor="let p of obj| keyvalue">
     <button (click)="showPost(p.key)">{{p.value.titolo}}</button>
