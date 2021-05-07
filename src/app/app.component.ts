@@ -25,7 +25,7 @@ export class AppComponent  {
       for (let i in p){
         this.obj.push(p[i]);
       }
-      console.log(this.obj);
+      
       },
     err => console.error("Observer got an error: " + err)
     );
@@ -36,6 +36,7 @@ export class AppComponent  {
   showPost(id) {
     this.selezione.titolo = this.obj[id].titolo;
     this.selezione.testo = this.obj[id].testo;
+    console.log(this.obj);
   }
 
   addPost(newPost: Post) {
