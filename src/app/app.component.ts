@@ -38,16 +38,8 @@ export class AppComponent  {
     this.selezione.testo = this.obj[id].testo;
   }
 
-  addPost(newPost: Object) {
-    var k : any = 0;
-    for (let data in this.obj ) {
-      var chiavi = Object.keys(this.obj);
-      var len = chiavi.length;
-      k = parseInt(chiavi[len-1]);
-    }
-    let i: number = k + 1;
-    var temp = { [i] : newPost };
-    this.obj = Object.assign(this.obj, temp);
+  addPost(newPost: Post) {
+    this.obj.push(newPost); 
     this.kv.postData(this.obj).subscribe( (obj: object) => {},
     err => console.error("Observer got an error: " + err)
     );
