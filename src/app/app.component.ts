@@ -46,7 +46,7 @@ export class AppComponent  {
   }
 
   deletePost(id) {
-    delete this.obj[id];
+    this.obj.splice(id); 
     this.kv.postData(this.obj).subscribe( (obj: object) => {},
     err => console.error("Observer got an error: " + err)
     );
