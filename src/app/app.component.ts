@@ -26,7 +26,7 @@ export class AppComponent  {
       for (let i in p){
         this.obj.push(p[i]);
       }
-      
+      console.log(this.obj);
       },
     err => console.error("Observer got an error: " + err)
     );
