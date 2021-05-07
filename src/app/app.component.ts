@@ -31,7 +31,7 @@ export class AppComponent  {
   showPost(id) {
     this.selezione.titolo = this.obj[id].titolo;
     this.selezione.testo = this.obj[id].testo;
-    console.log(this.obj[id]);
+    console.log(this.obj);
   }
 
   addPost(newPost: Object) {
