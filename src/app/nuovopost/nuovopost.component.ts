@@ -8,8 +8,8 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 export class NuovopostComponent implements OnInit {
   @Output() nuovoPostEvent = new EventEmitter<Object>();
   constructor() { }
-  nuovoPost(titolo: string, testo: string) {
-    this.nuovoPostEvent.emit({titolo, testo});
+  nuovoPost(titolo: string, testo: string, importante: Boolean) {
+    this.nuovoPostEvent.emit({titolo, testo, importante});
   }
   ngOnInit() {
   }

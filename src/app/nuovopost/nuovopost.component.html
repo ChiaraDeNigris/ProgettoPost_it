@@ -4,4 +4,6 @@
 <p>Testo:</p>
 <input #nuovoTesto/>
 <br/><br/>
-<button  (click)="nuovoPost(nuovoTitolo.value, nuovoTesto.value);nuovoTitolo.value='';nuovoTesto.value=''">Ok</button>
+Importante:<input type=radio #importante/>
+<br/><br/>
+<button  (click)="nuovoPost(nuovoTitolo.value, nuovoTesto.value, importante.checked );nuovoTitolo.value='';nuovoTesto.value='';importante.checked=false">Ok</button>
