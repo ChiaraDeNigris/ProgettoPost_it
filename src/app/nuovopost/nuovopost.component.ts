@@ -12,6 +12,9 @@ export class NuovopostComponent implements OnInit {
     if (titolo != ""){
       this.nuovoPostEvent.emit({titolo, testo, importante});
     }
+    else{
+      alert ("Inserisci titolo!");
+    }
   }
   ngOnInit() {
   }
