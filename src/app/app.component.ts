@@ -54,6 +54,7 @@ export class AppComponent {
 
   deletePost(id) {
     this.obj.splice(id, 1);
+    this.favourites = this.obj.filter(postit => postit.importante == true);
     this.kv
       .postData(this.obj)
       .subscribe(
