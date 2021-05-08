@@ -73,4 +73,12 @@ export class AppComponent {
   showAll() {
     this.important = false;
   }
+
+  getKey(){
+    console.log(this.obj);
+  }
+
+  newKey(){
+    console.log(this.obj);
+  }
 }
