@@ -18,6 +18,7 @@ export class AppComponent  {
   titleSec1 = "I tuoi post it";
   titleSec2 = "Scrivi un nuvo post-it";
   obj: Array<Post> = [];
+  important: Boolean = true;
   selezione: Post = new Post();
   constructor(private kv: KeyvalueService) {}
   
@@ -55,8 +56,12 @@ export class AppComponent  {
   }
 
    showImp() {
+    
     var prefs:Array<Post> = this.obj.filter(postit => postit.importante==true);
-    console.log(prefs);
+  }
+
+  showAll() {
+    this.important = false;
   }
 
 }
