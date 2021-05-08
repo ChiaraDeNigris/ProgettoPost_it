@@ -17,7 +17,7 @@ export class AppComponent {
   titleSec1 = 'I tuoi post it';
   titleSec2 = 'Scrivi un nuvo post-it';
   obj: Array<Post> = [];
-  prefs: Array<Post> = [];
+  favourites: Array<Post> = [];
   important: Boolean = false;
   selezione: Post = new Post();
   constructor(private kv: KeyvalueService) {}
@@ -63,10 +63,8 @@ export class AppComponent {
   }
 
   showImp() {
-    this.prefs = this.obj.filter(
-      postit => postit.importante == true
-    );
-    console.log(this.prefs);
+    this.favourites = this.obj.filter(postit => postit.importante == true);
+    console.log(this.favourites);
     this.important = true;
   }
 
