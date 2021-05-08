@@ -74,8 +74,8 @@ export class AppComponent {
     this.important = false;
   }
 
-  getKey(){
-    console.log(this.obj);
+  getKey(x:string){
+    alert(x);
   }
 
   newKey(){
