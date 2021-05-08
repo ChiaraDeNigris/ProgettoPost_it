@@ -11,7 +11,7 @@ import { LoginComponent } from './login/login.component';
 @NgModule({
   imports:      [ BrowserModule, HttpClientModule],
   declarations: [ AppComponent, VisualizzazioneComponent, NuovopostComponent, LoginComponent ],
-  bootstrap:    [  LoginComponent ],
+  bootstrap:    [ AppComponent ],
   providers: [KeyvalueService]
 })
 export class AppModule { }
