@@ -44,10 +44,7 @@ export class AppComponent {
 
   addPost(newPost: Post) {
     this.obj.push(newPost);
-    this.kv
-      .postData(this.obj)
-      .subscribe(
-        (obj: object) => {},
+    this.kv.postData(this.obj).subscribe((obj: object) => {},
         err => console.error('Observer got an error: ' + err)
       );
   }
@@ -55,10 +52,7 @@ export class AppComponent {
   deletePost(id:number) {
     this.obj.splice(id, 1);
     this.favourites.splice(id, 1);
-    this.kv
-      .postData(this.obj)
-      .subscribe(
-        (obj: object) => {},
+    this.kv.postData(this.obj).subscribe(  (obj: object) => {},
         err => console.error('Observer got an error: ' + err)
       );
     this.selezione.testo = undefined;
