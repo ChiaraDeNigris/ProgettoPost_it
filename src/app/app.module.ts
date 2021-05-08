@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 import { VisualizzazioneComponent } from './visualizzazione/visualizzazione.component';
 import { NuovopostComponent } from './nuovopost/nuovopost.component';
 import { KeyvalueService } from './keyvalue.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports:      [ BrowserModule, HttpClientModule],
-  declarations: [ AppComponent, VisualizzazioneComponent, NuovopostComponent ],
-  bootstrap:    [ AppComponent ],
+  declarations: [ AppComponent, VisualizzazioneComponent, NuovopostComponent, LoginComponent ],
+  bootstrap:    [  LoginComponent ],
   providers: [KeyvalueService]
 })
 export class AppModule { }
