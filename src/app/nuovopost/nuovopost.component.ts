@@ -9,7 +9,9 @@ export class NuovopostComponent implements OnInit {
   @Output() nuovoPostEvent = new EventEmitter<Object>();
   constructor() { }
   nuovoPost(titolo: string, testo: string, importante: Boolean) {
-    this.nuovoPostEvent.emit({titolo, testo, importante});
+    if (titolo != ""){
+      this.nuovoPostEvent.emit({titolo, testo, importante});
+    }
   }
   ngOnInit() {
   }
