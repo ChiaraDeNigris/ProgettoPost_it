@@ -34,7 +34,7 @@ export class AppComponent {
     );
   }
 
-  firtsCall = this.showTitle();
+  
 
   showPost(id) {
     this.selezione.titolo = this.obj[id].titolo;
@@ -74,8 +74,12 @@ export class AppComponent {
     this.important = false;
   }
 
-  getKey(x:string){
-    alert(x);
+  getKey(k:string){
+    console.log (this.kv.apiURL);
+    let url = this.kv.apiURL;
+    this.kv.apiURL = url.slice(0, 25) + k + url.slice(25);
+    console.log(this.kv.apiURL);
+    this.showTitle(); 
   }
 
   newKey(){

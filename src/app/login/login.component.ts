@@ -9,12 +9,7 @@ export class LoginComponent implements OnInit {
   @Output() nuovoKeyEvent = new EventEmitter<string>();
   constructor() { }
   getKey(chiave: string) {
-    if (chiave!= ""){
-      this.nuovoKeyEvent.emit(chiave);
-    }
-    else{
-      alert ("Inserisci una chiave!");
-    }
+    this.nuovoKeyEvent.emit(chiave);
   }
   ngOnInit() {
   }
