@@ -61,6 +61,7 @@ export class AppComponent {
         (obj: object) => {},
         err => console.error('Observer got an error: ' + err)
       );
+    this.selezione.testo = undefined;
   }
 
   showImp() {
