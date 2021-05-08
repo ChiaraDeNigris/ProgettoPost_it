@@ -2,8 +2,7 @@
 
 <h2>{{titleSec1}}</h2>
 <button (click) ="showImp()">Mostra solo importanti</button>
-
-  <ul *ngIf="important == true else Block">
+<ul *ngIf="important == true; else Block">
     <li *ngFor="let p of prefs | keyvalue">
     <button (click)="showPost(p.key)">{{p.value.titolo}}</button>
     <button (click) ="deletePost(p.key)">Elimina</button>
@@ -11,13 +10,13 @@
 </ul>
 <button (click) ="showAll()">Mostra tutti</button>
 <ng-template #Block>
-<ul>
-  <li *ngFor="let p of obj| keyvalue">
-    <button (click)="showPost(p.key)">{{p.value.titolo}}</button>
-    <button (click) ="deletePost(p.key)">Elimina</button>
-  </li>
-</ul>
-<br>
+  <ul>
+    <li *ngFor="let p of obj| keyvalue">
+      <button (click)="showPost(p.key)">{{p.value.titolo}}</button>
+      <button (click) ="deletePost(p.key)">Elimina</button>
+    </li>
+  </ul>
+  <br>
 </ng-template>
 <app-visualizzazione [selezioneC]="selezione"> </app-visualizzazione>
 <h2>{{titleSec2}}</h2>
