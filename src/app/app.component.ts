@@ -52,7 +52,7 @@ export class AppComponent {
       );
   }
 
-  deletePost(id) {
+  deletePost(id:number) {
     this.obj.splice(id, 1);
     this.favourites = this.obj.filter(postit => postit.importante == true);
     this.kv
