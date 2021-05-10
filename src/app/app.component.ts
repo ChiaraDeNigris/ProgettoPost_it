@@ -84,6 +84,7 @@ export class AppComponent {
     this.kv.Key().subscribe(
       (k: any) => {
         let key = k.split("/")[3];
+        this.kv.apiKey = key;
         console.log(key);
       },
       err => console.error('Observer got an error: ' + err)
