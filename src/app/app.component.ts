@@ -20,7 +20,7 @@ export class AppComponent {
   favourites: Array<Post> = [];
   important: Boolean = false;
   selezione: Post = new Post();
-  j: Boolean = false;
+  main: Boolean = false;
   constructor(private kv: KeyvalueService) {}
 
   showTitle() {
@@ -80,7 +80,7 @@ export class AppComponent {
     console.log(this.kv.apiURL);
     this.showTitle();
     k = '';
-    this.j = true;
+    this.main = true;
   }
 
   newKey() {

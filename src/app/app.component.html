@@ -1,10 +1,10 @@
 <h1>{{title}}</h1>
-<div  *ngIf = "j == false; else Main">
-<app-login (nuovoKeyEvent)="getKey($event)" (nuovoKEvent)="newKey($event)
+<div *ngIf="main == false; else Main">
+  <app-login (nuovoKeyEvent)="getKey($event)" (nuovoKEvent)="newKey($event)
 "> </app-login>
 </div>
 
-<div  *ngIf = "j == true">
+<div *ngIf="main == true">
   <h2>{{titleSec1}}</h2>
   <button (click) ="showImp()">Mostra solo importanti</button>
   <ul *ngIf="important == true; else Block">
