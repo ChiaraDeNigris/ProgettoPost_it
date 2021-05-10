@@ -16,6 +16,7 @@ export class AppComponent {
   title = 'Post-it';
   titleSec1 = 'I tuoi post it';
   titleSec2 = 'Scrivi un nuvo post-it';
+  nome = '';
   obj: Array<Post> = [];
   favourites: Array<Post> = [];
   important: Boolean = false;
@@ -79,7 +80,6 @@ export class AppComponent {
     this.kv.apiURL = url.slice(0, 25) + k + url.slice(25);
     console.log(this.kv.apiURL);
     this.showTitle();
-    k = '';
     this.main = true;
   }
 

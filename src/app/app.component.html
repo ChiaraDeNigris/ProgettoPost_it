@@ -6,6 +6,7 @@
 
 <div *ngIf="main == true">
   <h2>{{titleSec1}}</h2>
+  <h2>{{nome}}</h2>
   <button (click) ="showImp()">Mostra solo importanti</button>
   <ul *ngIf="important == true; else Block">
     <li *ngFor="let x of favourites | keyvalue">
