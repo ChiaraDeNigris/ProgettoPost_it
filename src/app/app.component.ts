@@ -34,8 +34,6 @@ export class AppComponent {
     );
   }
 
-  
-
   showPost(id) {
     this.selezione.titolo = this.obj[id].titolo;
     this.selezione.testo = this.obj[id].testo;
@@ -44,15 +42,21 @@ export class AppComponent {
 
   addPost(newPost: Post) {
     this.obj.push(newPost);
-    this.kv.postData(this.obj).subscribe((obj: object) => {},
+    this.kv
+      .postData(this.obj)
+      .subscribe(
+        (obj: object) => {},
         err => console.error('Observer got an error: ' + err)
       );
   }
 
-  deletePost(id:number) {
+  deletePost(id: number) {
     this.obj.splice(id, 1);
     this.favourites.splice(id, 1);
-    this.kv.postData(this.obj).subscribe(  (obj: object) => {},
+    this.kv
+      .postData(this.obj)
+      .subscribe(
+        (obj: object) => {},
         err => console.error('Observer got an error: ' + err)
       );
     this.selezione.testo = undefined;
@@ -68,15 +72,21 @@ export class AppComponent {
     this.important = false;
   }
 
-  getKey(k:string){
-    console.log (this.kv.apiURL);
+  getKey(k: string) {
+    console.log(this.kv.apiURL);
     let url = this.kv.apiURL;
     this.kv.apiURL = url.slice(0, 25) + k + url.slice(25);
     console.log(this.kv.apiURL);
-    this.showTitle(); 
+    this.showTitle();
   }
 
-  newKey(){
-    console.log(this.obj);
+  newKey() {
+    this.kv.Key().subscribe(
+      (k: any) => {
+        let key = k.split("/")[3];
+        console.log(key);
+      },
+      err => console.error('Observer got an error: ' + err)
+    );
   }
 }

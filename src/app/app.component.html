@@ -1,5 +1,6 @@
 <h1>{{title}}</h1>
 <app-login (nuovoKeyEvent)="getKey($event)"> </app-login>
+<app-login (nuovoKeyEvent)="newKey($event)"> </app-login>
 <h2>{{titleSec1}}</h2>
 <button (click) ="showImp()">Mostra solo importanti</button>
 <ul *ngIf="important == true; else Block">
