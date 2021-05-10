@@ -81,6 +81,7 @@ export class AppComponent {
     console.log(this.kv.apiURL);
     this.showTitle();
     this.main = true;
+    this.nome = k;
   }
 
   newKey() {
