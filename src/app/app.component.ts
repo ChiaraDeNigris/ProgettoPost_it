@@ -25,6 +25,7 @@ export class AppComponent {
   showTitle() {
     this.kv.getData().subscribe(
       (p: any) => {
+        console.log('uffix');
         for (let i in p) {
           this.obj.push(p[i]);
         }
@@ -77,19 +78,18 @@ export class AppComponent {
     this.kv.apiURL = url.slice(0, 25) + k + url.slice(25);
     console.log(this.kv.apiURL);
     this.showTitle();
-    k='';
+    k = '';
   }
 
   newKey() {
     this.kv.Key().subscribe(
       (k: any) => {
-        let key = k.split("/")[3];
+        let key = k.split('/')[3];
         this.kv.apiKey = key;
         console.log(key);
         //this.showTitle();
       },
       err => console.error('Observer got an error: ' + err)
     );
-    
   }
 }
