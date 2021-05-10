@@ -73,11 +73,11 @@ export class AppComponent {
   }
 
   getKey(k: string) {
-    console.log(this.kv.apiURL);
     let url = this.kv.apiURL;
     this.kv.apiURL = url.slice(0, 25) + k + url.slice(25);
     console.log(this.kv.apiURL);
     this.showTitle();
+    k='';
   }
 
   newKey() {
@@ -86,8 +86,10 @@ export class AppComponent {
         let key = k.split("/")[3];
         this.kv.apiKey = key;
         console.log(key);
+        //this.showTitle();
       },
       err => console.error('Observer got an error: ' + err)
     );
+    
   }
 }
