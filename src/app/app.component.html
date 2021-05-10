@@ -1,25 +1,31 @@
 <h1>{{title}}</h1>
-<app-login (nuovoKeyEvent)="getKey($event)" (nuovoKEvent)="newKey($event)"> </app-login>
-<h2>{{titleSec1}}</h2>
-<button (click) ="showImp()">Mostra solo importanti</button>
-<ul *ngIf="important == true; else Block">
-  <li *ngFor="let x of favourites | keyvalue">
-    <button (click)="showPost(x.key)">{{x.value.titolo}}</button>
-    <button (click) ="deletePost(x.key)">Elimina</button>
-  </li>
-  <br>
-  <button (click) ="showAll()">Mostra tutti</button>
-</ul>
+<div  *ngIf = "j == false; else Main">
+<app-login (nuovoKeyEvent)="getKey($event)" (nuovoKEvent)="newKey($event)
+"> </app-login>
+</div>
 
-<ng-template #Block>
-  <ul>
-    <li *ngFor="let p of obj| keyvalue">
-      <button (click)="showPost(p.key)">{{p.value.titolo}}</button>
-      <button (click) ="deletePost(p.key)">Elimina</button>
+<div  *ngIf = "j == true">
+  <h2>{{titleSec1}}</h2>
+  <button (click) ="showImp()">Mostra solo importanti</button>
+  <ul *ngIf="important == true; else Block">
+    <li *ngFor="let x of favourites | keyvalue">
+      <button (click)="showPost(x.key)">{{x.value.titolo}}</button>
+      <button (click) ="deletePost(x.key)">Elimina</button>
     </li>
+    <br>
+    <button (click) ="showAll()">Mostra tutti</button>
   </ul>
-  <br>
-</ng-template>
-<app-visualizzazione [selezioneC]="selezione"> </app-visualizzazione>
-<h2>{{titleSec2}}</h2>
-<app-nuovopost (nuovoPostEvent)="addPost($event)"> </app-nuovopost>
+
+  <ng-template #Block>
+    <ul>
+      <li *ngFor="let p of obj| keyvalue">
+        <button (click)="showPost(p.key)">{{p.value.titolo}}</button>
+        <button (click) ="deletePost(p.key)">Elimina</button>
+      </li>
+    </ul>
+    <br>
+  </ng-template>
+  <app-visualizzazione [selezioneC]="selezione"> </app-visualizzazione>
+  <h2>{{titleSec2}}</h2>
+  <app-nuovopost (nuovoPostEvent)="addPost($event)"> </app-nuovopost>
+</div>

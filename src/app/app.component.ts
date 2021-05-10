@@ -20,6 +20,7 @@ export class AppComponent {
   favourites: Array<Post> = [];
   important: Boolean = false;
   selezione: Post = new Post();
+  j: Boolean = false;
   constructor(private kv: KeyvalueService) {}
 
   showTitle() {
@@ -79,6 +80,7 @@ export class AppComponent {
     console.log(this.kv.apiURL);
     this.showTitle();
     k = '';
+    this.j = true;
   }
 
   newKey() {
@@ -87,7 +89,7 @@ export class AppComponent {
         let key = k.split('/')[3];
         this.kv.apiKey = key;
         console.log(key);
-        //this.showTitle();
+        this.getKey(key);
       },
       err => console.error('Observer got an error: ' + err)
     );
