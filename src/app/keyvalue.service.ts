@@ -20,7 +20,7 @@ export class KeyvalueService {
   }
 
   public Key() {
-    return this.http.post('https://api.keyvalue.xyz/new/newKey', '', {
+    return this.http.post('https://api.keyvalue.xyz/new/myKey', '', {
       responseType: 'text'
     });
   }
