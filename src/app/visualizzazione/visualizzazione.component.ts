@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Post } from '../app.component'
 
 @Component({
@@ -7,12 +7,10 @@ import { Post } from '../app.component'
   styleUrls: ['./visualizzazione.component.css']
 })
 
-export class VisualizzazioneComponent implements OnInit {
+export class VisualizzazioneComponent  {
   //dichiarazione di un oggetto di classe Post 
   @Input() selezioneC: Post;
   clean() {
     this.selezioneC.testo = undefined;
-  }
-  ngOnInit() {
   }
 }

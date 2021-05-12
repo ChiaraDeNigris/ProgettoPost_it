@@ -1,11 +1,11 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   @Output() nuovoKeyEvent = new EventEmitter<string>();
   @Output() nuovoKEvent = new EventEmitter();
   getKey(chiave: string) {
@@ -14,5 +14,4 @@ export class LoginComponent implements OnInit {
   newKey() {
     this.nuovoKEvent.emit();
   }
-  ngOnInit() {}
 }
