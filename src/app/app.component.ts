@@ -24,19 +24,6 @@ export class AppComponent {
   main: Boolean = false;
   constructor(private kv: KeyvalueService) {}
 
-  showTitle() {
-    this.kv.getData().subscribe(
-      (p: any) => {
-        console.log('uffix');
-        for (let i in p) {
-          this.obj.push(p[i]);
-        }
-        console.log(this.obj);
-      },
-      err => console.error('Observer got an error: ' + err)
-    );
-  }
-
   showPost(id) {
     this.selezione.titolo = this.obj[id].titolo;
     this.selezione.testo = this.obj[id].testo;
@@ -79,7 +66,14 @@ export class AppComponent {
     let url = this.kv.apiURL;
     this.kv.apiURL = url.slice(0, 25) + k + url.slice(25);
     console.log(this.kv.apiURL);
-    this.showTitle();
+    this.kv.getData().subscribe(
+      (p: any) => {
+        for (let i in p) {
+          this.obj.push(p[i]);
+        }
+      },
+      err => console.error('Observer got an error: ' + err)
+    );
     this.main = true;
     this.nome = k;
   }
