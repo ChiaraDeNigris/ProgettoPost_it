@@ -8,8 +8,8 @@ import { Post } from '../app.component'
 })
 
 export class VisualizzazioneComponent implements OnInit {
+  //dichiarazione di un oggetto di classe Post 
   @Input() selezioneC: Post;
-  constructor() { }
   clean() {
     this.selezioneC.testo = undefined;
   }
