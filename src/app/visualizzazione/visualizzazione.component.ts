@@ -15,5 +15,4 @@ export class VisualizzazioneComponent implements OnInit {
   }
   ngOnInit() {
   }
-
 }
