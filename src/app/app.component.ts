@@ -38,38 +38,42 @@ export class AppComponent {
   //funzione che aggiunge un oggetto nell' array obj e chiama la funzione postData del servizio, che esegue una Post del post it appena aggiunto
   addPost(newPost: Post) {
     this.obj.push(newPost);
-    this.kv.postData(this.obj).subscribe(
-        (obj: object) => {},
-        err => console.error('Observer got an error: ' + err)
-      );
-  }
-
-  deletePost(id: number) {
-    this.obj.splice(id, 1);
-    this.favourites.splice(id, 1);
     this.kv
       .postData(this.obj)
       .subscribe(
         (obj: object) => {},
         err => console.error('Observer got an error: ' + err)
       );
+  }
+
+  //funzione che elimina il post it selezionato dall' array obj e dall' array favourites e chiama la funzione postData del servizio, che posta tutti i post it tranne quello appena eliminato
+  deletePost(id: number) {
+    //l'1 di splice indica quanti elementi cancellare dopo l'id selezionato
+    this.obj.splice(id, 1);
+    this.favourites.splice(id, 1);
+    this.kv.postData(this.obj).subscribe((obj: object) => {},
+        err => console.error('Observer got an error: ' + err)
+      );
     this.selezione.testo = undefined;
   }
 
+  //funzione che mostra solo i post it importanti mediante un filtro
   showImp() {
     this.favourites = this.obj.filter(postit => postit.importante == true);
-    console.log(this.favourites);
     this.important = true;
   }
 
+  //funzione che mostra tutti i post it
   showAll() {
     this.important = false;
   }
 
+  //funzione che prende la chiave inserita in input e mostra tutti i post it ad essa associati
   getKey(k: string) {
     let url = this.kv.apiURL;
+    //insererzione della chiave nell'url
     this.kv.apiURL = url.slice(0, 25) + k + url.slice(25);
-    console.log(this.kv.apiURL);
+    //chiamata funzione getData che prende con una get i dati associati alla chiave
     this.kv.getData().subscribe(
       (p: any) => {
         for (let i in p) {
@@ -83,8 +87,7 @@ export class AppComponent {
   }
 
   newKey() {
-    this.kv.Key().subscribe(
-      (k: any) => {
+    this.kv.Key().subscribe((k: any) => {
         let key = k.split('/')[3];
         this.kv.apiKey = key;
         console.log(key);
