@@ -86,14 +86,14 @@ export class AppComponent {
     this.nome = k;
   }
 
+  //funzione che restituisce una nuova chiave chiamando la funzione Key nel servizio
   newKey() {
     this.kv.Key().subscribe((k: any) => {
-        let key = k.split('/')[3];
-        this.kv.apiKey = key;
-        console.log(key);
-        this.getKey(key);
-      },
-      err => console.error('Observer got an error: ' + err)
+      let key = k.split('/')[3];
+      this.kv.apiKey = key;
+      this.getKey(key);
+    },
+    err => console.error('Observer got an error: ' + err)
     );
   }
 }
