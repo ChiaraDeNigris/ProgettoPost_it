@@ -21,6 +21,7 @@ export class KeyvalueService {
 
   public Key() {
     return this.http.post('https://api.keyvalue.xyz/new/myKey', '', {
+      //è necessario specificare il responseType poichè scarichiamo una stringa (la chiave) e non un json come di default
       responseType: 'text'
     });
   }
