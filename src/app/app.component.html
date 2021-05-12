@@ -6,7 +6,7 @@
 
 <div *ngIf="main == true">
   La tua chiave:<b>{{nome}}</b>
-  <h2>{{titleSec1}}</h2>
+  <h2>{{titleSez1}}</h2>
 
   <ul *ngIf="important == true; else Block">
     <li *ngFor="let x of favourites | keyvalue">
@@ -28,6 +28,6 @@
     <br>
   </ng-template>
   <app-visualizzazione [selezioneC]="selezione"> </app-visualizzazione>
-  <h2>{{titleSec2}}</h2>
+  <h2>{{titleSez2}}</h2>
   <app-nuovopost (nuovoPostEvent)="addPost($event)"> </app-nuovopost>
 </div>

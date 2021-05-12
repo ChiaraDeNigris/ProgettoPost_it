@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { KeyvalueService } from './keyvalue.service';
 
+//esportiamo la classe Post, che definisce gli oggetti post it, per renderla visibile negli altri component
 export class Post {
   titolo: string;
   testo: string;
@@ -12,29 +13,32 @@ export class Post {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+//esportiamo la classe AppComponent per utilizzarne le funzioni definite all' interno
 export class AppComponent {
-  title = 'Post-it';
-  titleSec1 = 'I tuoi post it';
-  titleSec2 = 'Scrivi un nuvo post-it';
-  nome = '';
+  title: string = 'Post-it';
+  titleSez1: string = 'I tuoi post it';
+  titleSez2: string = 'Scrivi un nuvo post-it';
+  nome: string = '';
   obj: Array<Post> = [];
   favourites: Array<Post> = [];
   important: Boolean = false;
-  selezione: Post = new Post();
   main: Boolean = false;
+  //creazione di un nuovo oggetto associato alla classe Post
+  selezione: Post = new Post();
+  //istanzio un oggetto del servizio chiave
   constructor(private kv: KeyvalueService) {}
 
+  //funzione che inizializza le proprietà dell'oggetto selezione
   showPost(id) {
     this.selezione.titolo = this.obj[id].titolo;
     this.selezione.testo = this.obj[id].testo;
-    console.log(this.obj);
   }
 
+  //funzione che aggiunge un oggetto nell' array obj e chiama la funzione postData del servizio, che esegue una Post del post it appena aggiunto
   addPost(newPost: Post) {
     this.obj.push(newPost);
-    this.kv
-      .postData(this.obj)
-      .subscribe(
+    this.kv.postData(this.obj).subscribe(
         (obj: object) => {},
         err => console.error('Observer got an error: ' + err)
       );
