@@ -51,7 +51,10 @@ export class AppComponent {
     //l'1 di splice indica quanti elementi cancellare dopo l'id selezionato
     this.obj.splice(id, 1);
     this.favourites.splice(id, 1);
-    this.kv.postData(this.obj).subscribe((obj: object) => {},
+    this.kv
+      .postData(this.obj)
+      .subscribe(
+        (obj: object) => {},
         err => console.error('Observer got an error: ' + err)
       );
     this.selezione.testo = undefined;
@@ -73,27 +76,35 @@ export class AppComponent {
     let url = this.kv.apiURL;
     //insererzione della chiave nell'url
     this.kv.apiURL = url.slice(0, 25) + k + url.slice(25);
-    //chiamata funzione getData che prende con una get i dati associati alla chiave
-    this.kv.getData().subscribe(
-      (p: any) => {
-        for (let i in p) {
-          this.obj.push(p[i]);
-        }
+    this.kv.postData('{ }').subscribe(
+      (x: any) => {
+        console.log(x);
+        //chiamata funzione getData che prende con una get i dati associati alla chiave
+        this.kv.getData().subscribe((p: any) => {
+          for (let i in p) {
+            this.obj.push(p[i]);
+          }
+        });
       },
-      err => console.error('Observer got an error: ' + err)
-    );
+      err => {
+        console.error('Observer got an error: ' + err);
+        this.main = false;
+      }
+    ),
+      err => console.error('Observer got an error: ' + err);
     this.main = true;
     this.nome = k;
   }
 
   //funzione che restituisce una nuova chiave chiamando la funzione Key nel servizio
   newKey() {
-    this.kv.Key().subscribe((k: any) => {
-      let key = k.split('/')[3];
-      this.kv.apiKey = key;
-      this.getKey(key);
-    },
-    err => console.error('Observer got an error: ' + err)
+    this.kv.Key().subscribe(
+      (k: any) => {
+        let key = k.split('/')[3];
+        this.kv.apiKey = key;
+        this.getKey(key);
+      },
+      err => console.error('Observer got an error: ' + err)
     );
   }
 }
