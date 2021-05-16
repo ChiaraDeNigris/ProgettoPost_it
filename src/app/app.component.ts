@@ -74,12 +74,9 @@ export class AppComponent {
   //funzione che prende la chiave inserita in input e mostra tutti i post it ad essa associati
   getKey(k: string) {
     let url = this.kv.apiURL;
-    //insererzione della chiave nell'url
     this.kv.apiURL = url.slice(0, 25) + k + url.slice(25);
     this.kv.postData('{ }').subscribe(
       (x: any) => {
-        console.log(x);
-        //chiamata funzione getData che prende con una get i dati associati alla chiave
         this.kv.getData().subscribe((p: any) => {
           for (let i in p) {
             this.obj.push(p[i]);
@@ -91,7 +88,6 @@ export class AppComponent {
         this.main = false;
       }
     ),
-      err => console.error('Observer got an error: ' + err);
     this.main = true;
     this.nome = k;
   }
