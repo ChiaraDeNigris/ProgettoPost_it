@@ -88,7 +88,7 @@ export class AppComponent {
         this.main = false;
       }
     ),
-      (this.main = true);
+    this.main = true;
     this.nome = k;
   }
 
