@@ -75,7 +75,7 @@ export class AppComponent {
   getKey(k: string) {
     let url = this.kv.apiURL;
     this.kv.apiURL = url.slice(0, 25) + k + url.slice(25);
-    this.kv.postData(this.obj).subscribe(
+    this.kv.postData('{ }').subscribe(
       (x: any) => {
         this.kv.getData().subscribe((p: any) => {
           for (let i in p) {
@@ -88,7 +88,7 @@ export class AppComponent {
         this.main = false;
       }
     ),
-    this.main = true;
+      (this.main = true);
     this.nome = k;
   }
 
