@@ -48,7 +48,6 @@ export class AppComponent {
 
   //funzione che elimina il post it selezionato dall' array obj e dall' array favourites e chiama la funzione postData del servizio, che posta tutti i post it tranne quello appena eliminato
   deletePost(id: number) {
-    //l'1 di splice indica quanti elementi cancellare dopo l'id selezionato
     this.obj.splice(id, 1);
     this.favourites.splice(id, 1);
     this.kv
@@ -73,34 +72,37 @@ export class AppComponent {
 
   //funzione che prende la chiave inserita in input e mostra tutti i post it ad essa associati
   getKey(k: string) {
-    let url = this.kv.apiURL;
-    this.kv.apiURL = url.slice(0, 25) + k + url.slice(25);
-    this.kv.postData('{ }').subscribe(
-      (x: any) => {
+    console.log('entro amo')
+    this.kv.apiURL = this.kv.apiURL.slice(0, 25) + k + this.kv.apiURL.slice(25);
+    console.log(this.kv.apiURL)
         this.kv.getData().subscribe((p: any) => {
+          console.log('ggggg')
           for (let i in p) {
             this.obj.push(p[i]);
           }
-        });
+          this.main = true;
+          this.nome = k;
       },
       err => {
-        console.error('Observer got an error: ' + err);
         this.main = false;
+        console.error('Observer got an error fucj: ' + err);
       }
-    ),
-    this.main = true;
-    this.nome = k;
+    );
   }
 
   //funzione che restituisce una nuova chiave chiamando la funzione Key nel servizio
   newKey() {
-    this.kv.Key().subscribe(
-      (k: any) => {
+    this.kv.Key().subscribe((k: any) => {
         let key = k.split('/')[3];
         this.kv.apiKey = key;
-        this.getKey(key);
+        this.kv.apiURL = this.kv.apiURL.slice(0, 25) + key + this.kv.apiURL.slice(25);
+        this.kv.postData({}).subscribe((y: object) => {},
+          err => console.error('Observer5 got an error: ' + err)
+        );
+        this.nome = key;
+        this.main = true;
       },
-      err => console.error('Observer got an error: ' + err)
+      err => console.error('Observer got an error ffff: ' + err)
     );
   }
 }
