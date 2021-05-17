@@ -72,11 +72,8 @@ export class AppComponent {
 
   //funzione che prende la chiave inserita in input e mostra tutti i post it ad essa associati
   getKey(k: string) {
-    console.log('entro amo')
     this.kv.apiURL = this.kv.apiURL.slice(0, 25) + k + this.kv.apiURL.slice(25);
-    console.log(this.kv.apiURL)
         this.kv.getData().subscribe((p: any) => {
-          console.log('ggggg')
           for (let i in p) {
             this.obj.push(p[i]);
           }
@@ -85,7 +82,7 @@ export class AppComponent {
       },
       err => {
         this.main = false;
-        console.error('Observer got an error fucj: ' + err);
+        console.error('Observer got an error: ' + err);
       }
     );
   }
@@ -102,7 +99,7 @@ export class AppComponent {
         this.nome = key;
         this.main = true;
       },
-      err => console.error('Observer got an error ffff: ' + err)
+      err => console.error('Observer got an error: ' + err)
     );
   }
 }
