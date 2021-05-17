@@ -94,7 +94,7 @@ export class AppComponent {
         this.kv.apiKey = key;
         this.kv.apiURL = this.kv.apiURL.slice(0, 25) + key + this.kv.apiURL.slice(25);
         this.kv.postData({}).subscribe((y: object) => {},
-          err => console.error('Observer5 got an error: ' + err)
+          err => console.error('Observer got an error: ' + err)
         );
         this.nome = key;
         this.main = true;
