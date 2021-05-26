@@ -12,8 +12,9 @@ export class KeyvalueService {
   msg: Array<Post> = [];
   constructor(private http: HttpClient) {}
 
-  public getData(): Observable<Object> {
-    return this.http.get(this.apiURL);
+  public getData() {
+    let promise = fetch(this.apiURL + '/get?key=' + this.apiKey);
+    return promise;
   }
 
   public postData(obj) {

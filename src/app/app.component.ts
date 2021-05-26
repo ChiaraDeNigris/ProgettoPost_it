@@ -73,20 +73,18 @@ export class AppComponent {
 
   //funzione che prende la chiave inserita in input e mostra tutti i post it ad essa associati
   getKey(k: string) {
-    this.kv.apiURL = this.kv.apiURL.slice(0, 25) + k + this.kv.apiURL.slice(25);
-    this.kv.getData().subscribe(
-      (p: any) => {
-        for (let i in p) {
-          this.obj.push(p[i]);
+    this.kv.apiKey = k;
+    this.kv
+      .getData()
+      .then(response => response.json(), error => alert(error))
+      .then(data => {
+        console.log(data);
+        for (let i in data) {
+          this.obj.push(data[i]);
         }
         this.main = true;
-        this.nome = k;
-      },
-      err => {
-        this.main = false;
-        console.error('Observer got an error: ' + err);
-      }
-    );
+        this.chiave = k;
+      });
   }
 
   //funzione che restituisce una nuova chiave chiamando la funzione Key nel servizio
