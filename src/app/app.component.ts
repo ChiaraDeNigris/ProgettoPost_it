@@ -19,7 +19,7 @@ export class AppComponent {
   title: string = 'Post-it';
   titleSez1: string = 'I tuoi post it';
   titleSez2: string = 'Scrivi un nuvo post-it';
-  nome: any = '';
+  chiave: any = '';
   obj: Array<Post> = [];
   favourites: Array<Post> = [];
   important: Boolean = false;
@@ -37,13 +37,14 @@ export class AppComponent {
 
   //funzione che aggiunge un oggetto nell' array obj e chiama la funzione postData del servizio, che esegue una Post del post it appena aggiunto
   addPost(newPost: Post) {
-    this.obj.push(newPost);
+    this.kv.apiKey = this.chiave;
+    this.kv.msg = this.obj.push(newPost);
     this.kv
-      .postData(this.obj)
-      .subscribe(
-        (obj: object) => {},
-        err => console.error('Observer got an error: ' + err)
-      );
+      .postData(this.kv.msg)
+      .then(response => response.json(), error => alert(error))
+      .then(data => {
+        console.log(data);
+      });
   }
 
   //funzione che elimina il post it selezionato dall' array obj e dall' array favourites e chiama la funzione postData del servizio, che posta tutti i post it tranne quello appena eliminato
@@ -98,7 +99,7 @@ export class AppComponent {
         .then(data => {
           console.log(data);
         });
-      this.nome = key;
+      this.chiave = key;
     });
     this.main = true;
   }

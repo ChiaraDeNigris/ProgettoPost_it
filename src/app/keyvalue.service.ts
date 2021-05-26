@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class KeyvalueService {
+  msg: object= {};
   apiKey: string = '';
   apiURL: string =
     'https://eu-central-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/kvaas-giwjg/service/kvaas/incoming_webhook';
@@ -16,9 +17,15 @@ export class KeyvalueService {
     return this.http.get(this.apiURL);
   }
 
-  public postData(obj: Object): Observable<Object> {
-    return this.http.post(this.apiURL, obj);
+
+  public postData(obj) {
+    let promise = fetch(
+      this.apiURL + '/post?key=' + this.apiKey + '&msg=' + this.msg,
+      { method: 'POST'}
+    );
+    return promise;
   }
+
 
   //nuova chiave
   public Key() {
