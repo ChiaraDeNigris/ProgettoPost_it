@@ -19,7 +19,7 @@ export class AppComponent {
   title: string = 'Post-it';
   titleSez1: string = 'I tuoi post it';
   titleSez2: string = 'Scrivi un nuvo post-it';
-  nome: string = '';
+  nome: any = '';
   obj: Array<Post> = [];
   favourites: Array<Post> = [];
   important: Boolean = false;
@@ -73,12 +73,13 @@ export class AppComponent {
   //funzione che prende la chiave inserita in input e mostra tutti i post it ad essa associati
   getKey(k: string) {
     this.kv.apiURL = this.kv.apiURL.slice(0, 25) + k + this.kv.apiURL.slice(25);
-        this.kv.getData().subscribe((p: any) => {
-          for (let i in p) {
-            this.obj.push(p[i]);
-          }
-          this.main = true;
-          this.nome = k;
+    this.kv.getData().subscribe(
+      (p: any) => {
+        for (let i in p) {
+          this.obj.push(p[i]);
+        }
+        this.main = true;
+        this.nome = k;
       },
       err => {
         this.main = false;
@@ -89,17 +90,16 @@ export class AppComponent {
 
   //funzione che restituisce una nuova chiave chiamando la funzione Key nel servizio
   newKey() {
-    this.kv.Key().subscribe((k: any) => {
-        let key = k.split('/')[3];
-        this.kv.apiKey = key;
-        this.kv.apiURL = this.kv.apiURL.slice(0, 25) + key + this.kv.apiURL.slice(25);
-        this.kv.postData({}).subscribe((y: object) => {},
-          err => console.error('Observer got an error: ' + err)
-        );
-        this.nome = key;
-        this.main = true;
-      },
-      err => console.error('Observer got an error: ' + err)
-    );
+    this.kv.Key().then(key => {
+      fetch(this.kv.apiURL + '/post?key=' + key + '&msg=' + {}, {
+        method: 'POST'
+      })
+        .then(response => response.json(), error => alert(error))
+        .then(data => {
+          console.log(data);
+        });
+      this.nome = key;
+    });
+    this.main = true;
   }
 }
