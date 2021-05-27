@@ -21,7 +21,7 @@ export class AppComponent {
   titleSez2: string = 'Scrivi un nuvo post-it';
   chiave: any = '';
   obj: Array<Post> = [];
-  
+
   favourites: Array<Post> = [];
   important: Boolean = false;
   main: Boolean = false;
@@ -38,15 +38,16 @@ export class AppComponent {
 
   //funzione che aggiunge un oggetto nell' array obj e chiama la funzione postData del servizio, che esegue una Post del post it appena aggiunto
   addPost(newPost: Post) {
-    this.kv.apiKey = this.chiave;;
+    this.kv.apiKey = this.chiave;
     this.obj.push(newPost);
-    this.kv.msg =  JSON.stringify(this.obj);
+    let msg = JSON.stringify(this.obj);
     //console.log('msg' + this.kv.msg);
     //console.log(this.obj.push(newPost));
     this.kv
-      .postData(this.kv.msg)
+      .postData(msg)
       .then(response => response.json(), error => alert(error))
       .then(data => {
+        console.log(data);
         console.log(data[0].titolo);
         console.log(data[0].messaggio);
       });

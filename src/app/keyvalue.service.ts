@@ -9,7 +9,6 @@ export class KeyvalueService {
   apiKey: string = '';
   apiURL: string =
     'https://eu-central-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/kvaas-giwjg/service/kvaas/incoming_webhook';
-  msg: any = '';
   constructor(private http: HttpClient) {}
 
   public getData() {
@@ -17,9 +16,9 @@ export class KeyvalueService {
     return promise;
   }
 
-  public postData(obj) {
+  public postData(data: string) {
     let promise = fetch(
-      this.apiURL + '/post?key=' + this.apiKey + '&msg=' + this.msg,
+      this.apiURL + '/post?key=' + this.apiKey + '&msg=' + data,
       { method: 'POST' }
     );
     return promise;
