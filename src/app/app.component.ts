@@ -47,10 +47,9 @@ export class AppComponent {
       .postData(msg)
       .then(response => response.json(), error => alert(error))
       .then(data => {
-        var post = JSON.parse(data);
         console.log(data);
-        console.log(post[0].titolo);
-        console.log(post[0].messaggio);
+        console.log(data[0].titolo);
+        console.log(data[0].messaggio);
       });
   }
 
@@ -85,9 +84,10 @@ export class AppComponent {
       .getData()
       .then(response => response.json(), error => alert(error))
       .then(data => {
-        for (let i in data) {
-          this.obj.push(data[i]);
-        }
+        console.log(data);
+        var obj = JSON.parse(data);
+        console.log(obj[0].titolo);
+        console.log(obj[0].messaggio);
         this.main = true;
         this.chiave = k;
       });
