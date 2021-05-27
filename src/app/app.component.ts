@@ -40,16 +40,12 @@ export class AppComponent {
   addPost(newPost: Post) {
     this.kv.apiKey = this.chiave;
     this.obj.push(newPost);
-    let msg = JSON.stringify(this.obj);
-    //console.log('msg' + this.kv.msg);
-    //console.log(this.obj.push(newPost));
+    let msg: string = JSON.stringify(this.obj);
     this.kv
       .postData(msg)
       .then(response => response.json(), error => alert(error))
       .then(data => {
         console.log(data);
-        console.log(data[0].titolo);
-        console.log(data[0].messaggio);
       });
   }
 
@@ -85,9 +81,10 @@ export class AppComponent {
       .then(response => response.json(), error => alert(error))
       .then(data => {
         console.log(data);
-        var obj = JSON.parse(data);
-        console.log(obj[0].titolo);
-        console.log(obj[0].messaggio);
+        var oggetto = JSON.parse(data);
+        for (let i in oggetto) {
+          this.obj.push(oggetto[i]);
+        }
         this.main = true;
         this.chiave = k;
       });
