@@ -38,7 +38,10 @@ export class AppComponent {
   //funzione che aggiunge un oggetto nell' array obj e chiama la funzione postData del servizio, che esegue una Post del post it appena aggiunto
   addPost(newPost: Post) {
     this.kv.apiKey = this.chiave;
-    this.kv.msg = this.obj.push(newPost);
+    this.obj.push(newPost);
+    this.kv.msg = this.obj;
+    console.log('msg' + this.kv.msg);
+    console.log(this.obj.push(newPost));
     this.kv
       .postData(this.kv.msg)
       .then(response => response.json(), error => alert(error))
