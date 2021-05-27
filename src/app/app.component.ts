@@ -53,13 +53,12 @@ export class AppComponent {
   deletePost(id: number) {
     this.obj.splice(id, 1);
     this.favourites.splice(id, 1);
-    this.kv
-      .postData(this.obj)
-      .subscribe(
-        (obj: object) => {},
-        err => console.error('Observer got an error: ' + err)
-      );
-    this.selezione.testo = undefined;
+    let msg: string = JSON.stringify(this.obj);
+    this.kv.postData(msg)
+       .then(response => response.json(), error => alert(error))
+        .then(data => {
+          console.log(data);
+        });
   }
 
   //funzione che mostra solo i post it importanti mediante un filtro
