@@ -47,9 +47,10 @@ export class AppComponent {
       .postData(msg)
       .then(response => response.json(), error => alert(error))
       .then(data => {
+        var post = JSON.parse(data);
         console.log(data);
-        console.log(data[0].titolo);
-        console.log(data[0].messaggio);
+        console.log(post[0].titolo);
+        console.log(post[0].messaggio);
       });
   }
 
