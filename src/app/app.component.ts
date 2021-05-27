@@ -21,7 +21,6 @@ export class AppComponent {
   titleSez2: string = 'Scrivi un nuvo post-it';
   chiave: any = '';
   obj: Array<Post> = [];
-
   favourites: Array<Post> = [];
   important: Boolean = false;
   main: Boolean = false;
