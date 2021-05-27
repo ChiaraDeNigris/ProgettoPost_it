@@ -46,7 +46,7 @@ export class AppComponent {
       .postData(this.kv.msg)
       .then(response => response.json(), error => alert(error))
       .then(data => {
-        console.log(this.obj);
+        console.log("boh" + "" +this.obj);
       });
   }
 
@@ -83,7 +83,6 @@ export class AppComponent {
       .then(data => {
         for (let i in data) {
           this.obj.push(data[i]);
-          console.log(this.obj);
         }
         this.main = true;
         this.chiave = k;
