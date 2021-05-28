@@ -13,7 +13,7 @@ Il component parent app contiene al suo interno:
 
 Le funzioni vengono richiamate nell’ html del component parent. 
 
-Il component child “Login” gestisce la registrazione e l’accesso dell’utente nell’app. A seconda che si clicchi sul tasto registrati o su quello accedi, vengono emessi due eventi: uno per restituire una nuova chiave all’utente che desidera registrarsi e uno per prendere la chiave inserita dall’utente nella input box in html. 
+Il component child “Login” gestisce la registrazione e l’accesso dell’utente nell’app. Cliccando sul tasto "Richiedi la tua chiave", al nuovo utente viene data la possibilità di ottenere una nuova chiave alfanumerica a cui associare i suoi post-it. Nel caso di un utente già registrato,invece, è suffiiciente inserire la chiave in suo possesso all'interno nell' input box in html per poter visualizzare tutti i post it ad essa associati. 
 
 Il component child “Nuovopost” è responsabile della creazione di un nuovo post, composto da titolo e testo e classificato o meno come importante. Cliccando sul pulsante “ok”, viene creato un nuovo oggetto che sarà poi associato alla classe Post e memorizzato nell’array contenente tutti i post-it dell’utente.
 
