@@ -23,6 +23,7 @@ Il servizio permette di ottenere delle chiavi alfanumeriche che danno modo allâ€
 - una per ottenere i post-it associati ad una chiave mediante il metodo get, 
 - una per eseguire un upload dei nuovi post-it e associarli alla chiave mediante il metodo post,
 - una per ottenere una nuova chiave per un nuovo utente mediante il metodo post.
+
 Il servizio si basa sullâ€™utilizzo del metodo fetch().
 
 
