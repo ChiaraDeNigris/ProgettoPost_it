@@ -20,9 +20,9 @@ Il component child “Nuovopost” è responsabile della creazione di un nuovo p
 Il component child “Visualizzazione” gestisce la visualizzazione del testo dei post-it cliccando sul loro titolo. 
 
 Il servizio permette di ottenere delle chiavi alfanumeriche che danno modo all’utente di memorizzare tutti i suoi post-it e accedervi quando vuole mediante la sua chiave. All’interno del servizio sono definite tre funzioni: 
--una per ottenere i post-it associati ad una chiave mediante il metodo get, 
--una per eseguire un upload dei nuovi post-it e associarli alla chiave mediante il metodo post,
--una per ottenere una nuova chiave per un nuovo utente mediante il metodo post.
+- una per ottenere i post-it associati ad una chiave mediante il metodo get, 
+- una per eseguire un upload dei nuovi post-it e associarli alla chiave mediante il metodo post,
+- una per ottenere una nuova chiave per un nuovo utente mediante il metodo post.
 Il servizio si basa sull’utilizzo del metodo fetch().
 
 
