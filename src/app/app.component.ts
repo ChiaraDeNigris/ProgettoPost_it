@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { KeyvalueService } from './keyvalue.service';
 
-//esportiazione della classe Post, che definisce gli oggetti post it, per renderla visibile negli altri component
+//esportazione della classe Post, che definisce gli oggetti post it, per renderla visibile negli altri component
 export class Post {
   titolo: string;
   testo: string;
@@ -14,7 +14,7 @@ export class Post {
   styleUrls: ['./app.component.css']
 })
 
-//esportiazione della classe AppComponent per utilizzarne le funzioni definite all' interno
+//esportazione della classe AppComponent per utilizzarne le funzioni definite all' interno
 export class AppComponent {
   title: string = 'Post-it';
   titleSez1: string = 'I tuoi post it';
