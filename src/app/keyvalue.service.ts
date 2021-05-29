@@ -11,11 +11,13 @@ export class KeyvalueService {
     'https://eu-central-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/kvaas-giwjg/service/kvaas/incoming_webhook';
   constructor(private http: HttpClient) {}
 
+  //funzione per ottenere i dati associati a una chiave
   public getData() {
     let promise = fetch(this.apiURL + '/get?key=' + this.apiKey);
     return promise;
   }
 
+  //funzione per postare i dati associati a una chiave
   public postData(data: string) {
     let promise = fetch(
       this.apiURL + '/post?key=' + this.apiKey + '&msg=' + data,
@@ -24,7 +26,7 @@ export class KeyvalueService {
     return promise;
   }
 
-  //nuova chiave
+  //funzione per ottenere una nuova chiave
   public Key() {
     let promise = fetch(this.apiURL + '/new', { method: 'POST' }).then(
       response => response.json(),
